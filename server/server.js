@@ -27,7 +27,7 @@ app.get("/", (req, res) => res.json({ msg: "StaffSync API is running" }));
 // ---- Routes get mounted here in the next steps ----
 app.use("/api/auth", require("./routes/auth"));
 // app.use("/api/employees", require("./routes/employees"));
-// app.use("/api/leaves", require("./routes/leaves"));
+app.use("/api/leaves", require("./routes/leaves"));
 // app.use("/api/attendance", require("./routes/attendance"));
 // app.use("/api/announcements", require("./routes/announcements"));
 // app.use("/api/trainings", require("./routes/trainings"));

@@ -8,7 +8,7 @@ export default function EmployeeDashboard() {
       title="Employee Dashboard"
       subtitle={`Welcome, ${user.name}. Apply for leave, mark attendance and stay updated.`}
       tiles={[
-        { title: "Apply for leave", text: "Send a leave request and track its status." },
+        { title: "Apply for leave", text: "Send a leave request and track its status.", to: "/leaves" },
         { title: "Mark attendance", text: "Check in and check out for the day." },
         { title: "My profile", text: "View and update your personal records." },
         { title: "Announcements", text: "Read the latest company news." },

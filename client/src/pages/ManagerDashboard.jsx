@@ -8,7 +8,8 @@ export default function ManagerDashboard() {
       title="Manager Dashboard"
       subtitle={`Welcome, ${user.name}. You can handle your team's leave and training.`}
       tiles={[
-        { title: "Leave requests", text: "Review and decide on your team's leave." },
+        { title: "Leave requests", text: "Review and decide on your team's leave.", to: "/leave-requests" },
+        { title: "My leave", text: "Apply for your own leave (HR approves it).", to: "/leaves" },
         { title: "Training & development", text: "Create training programs and assign them to your team." },
         { title: "Announcements", text: "Read the latest company news." },
       ]}

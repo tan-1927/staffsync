@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 // Shared layout for the three dashboards.
-// The tiles are placeholders now; each one becomes a real page in the next steps.
+// A tile with a "to" link is a working feature; the others are still placeholders.
 export default function DashboardTiles({ title, subtitle, tiles }) {
   return (
     <div className="container py-4">
@@ -12,7 +14,13 @@ export default function DashboardTiles({ title, subtitle, tiles }) {
               <div className="card-body">
                 <h5 className="card-title">{t.title}</h5>
                 <p className="card-text text-muted">{t.text}</p>
-                <span className="badge bg-secondary">Coming soon</span>
+                {t.to ? (
+                  <Link to={t.to} className="btn btn-dark btn-sm">
+                    Open
+                  </Link>
+                ) : (
+                  <span className="badge bg-secondary">Coming soon</span>
+                )}
               </div>
             </div>
           </div>
