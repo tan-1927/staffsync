@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
 // A "model" describes what one record in the database looks like.
-// This one is a user account: HR, manager or employee.
+// This one is a user account (HR, manager or employee) plus their HR record.
 const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true, trim: true },
@@ -20,6 +20,17 @@ const userSchema = new mongoose.Schema(
       enum: ["hr", "manager", "employee"],
       default: "employee",
     },
+
+    // ---- HR record (managed by HR) ----
+    department: { type: String, trim: true, default: "" },
+    designation: { type: String, trim: true, default: "" },
+    salary: { type: Number, min: 0, default: 0 },
+    joinDate: { type: Date },
+    manager: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+
+    // ---- personal details (the person can edit these themselves) ----
+    phone: { type: String, trim: true, default: "" },
+    address: { type: String, trim: true, default: "" },
   },
   { timestamps: true }
 );

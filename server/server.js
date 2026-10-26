@@ -24,13 +24,13 @@ app.use(express.json());
 // Health check (Render uses this too)
 app.get("/", (req, res) => res.json({ msg: "StaffSync API is running" }));
 
-// ---- Routes get mounted here in the next steps ----
+// ---- Routes ----
 app.use("/api/auth", require("./routes/auth"));
-// app.use("/api/employees", require("./routes/employees"));
+app.use("/api/users", require("./routes/users"));
 app.use("/api/leaves", require("./routes/leaves"));
-// app.use("/api/attendance", require("./routes/attendance"));
-// app.use("/api/announcements", require("./routes/announcements"));
-// app.use("/api/trainings", require("./routes/trainings"));
+app.use("/api/attendance", require("./routes/attendance"));
+app.use("/api/announcements", require("./routes/announcements"));
+app.use("/api/trainings", require("./routes/trainings"));
 
 // Basic error handler
 app.use((err, req, res, next) => {

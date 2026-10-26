@@ -9,6 +9,13 @@ import ManagerDashboard from "./pages/ManagerDashboard";
 import EmployeeDashboard from "./pages/EmployeeDashboard";
 import Leaves from "./pages/Leaves";
 import LeaveRequests from "./pages/LeaveRequests";
+import Employees from "./pages/Employees";
+import Attendance from "./pages/Attendance";
+import AttendanceAll from "./pages/AttendanceAll";
+import Announcements from "./pages/Announcements";
+import Trainings from "./pages/Trainings";
+import MyTrainings from "./pages/MyTrainings";
+import Profile from "./pages/Profile";
 
 // "/" sends you to your dashboard if logged in, otherwise to the login page
 function RootRedirect() {
@@ -67,6 +74,15 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route path="/employees" element={<ProtectedRoute roles={["hr"]}><Employees /></ProtectedRoute>} />
+        <Route path="/attendance-all" element={<ProtectedRoute roles={["hr"]}><AttendanceAll /></ProtectedRoute>} />
+        <Route path="/trainings" element={<ProtectedRoute roles={["hr", "manager"]}><Trainings /></ProtectedRoute>} />
+        <Route path="/my-trainings" element={<ProtectedRoute roles={["employee"]}><MyTrainings /></ProtectedRoute>} />
+        {/* any logged-in role */}
+        <Route path="/attendance" element={<ProtectedRoute><Attendance /></ProtectedRoute>} />
+        <Route path="/announcements" element={<ProtectedRoute><Announcements /></ProtectedRoute>} />
+        <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

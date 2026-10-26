@@ -9,9 +9,11 @@ export default function ManagerDashboard() {
       subtitle={`Welcome, ${user.name}. You can handle your team's leave and training.`}
       tiles={[
         { title: "Leave requests", text: "Review and decide on your team's leave.", to: "/leave-requests" },
+        { title: "Training & development", text: "Create training programs and assign them to your team.", to: "/trainings" },
         { title: "My leave", text: "Apply for your own leave (HR approves it).", to: "/leaves" },
-        { title: "Training & development", text: "Create training programs and assign them to your team." },
-        { title: "Announcements", text: "Read the latest company news." },
+        { title: "My attendance", text: "Check in and check out for the day.", to: "/attendance" },
+        { title: "Announcements", text: "Read the latest company news.", to: "/announcements" },
+        { title: "My profile", text: "View and update your details.", to: "/profile" },
       ]}
     />
   );
